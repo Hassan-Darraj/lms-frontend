@@ -1,0 +1,553 @@
+/* ReportComponents.css */
+
+/* System Usage Report */
+.system-usage-report {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-medium);
+}
+
+.report-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--gray-medium);
+}
+
+.report-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.report-icon {
+  font-size: 1.75rem;
+}
+
+.report-subtitle {
+  color: var(--gray-dark);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.usage-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, rgba(103, 18, 242, 0.05), rgba(157, 136, 179, 0.05));
+  border: 1px solid rgba(103, 18, 242, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-card h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-dark);
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+  line-height: 1;
+}
+
+.report-timestamp {
+  text-align: center;
+  color: var(--gray-dark);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-medium);
+}
+
+/* Course Popularity Report */
+.course-popularity-report {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-medium);
+}
+
+.report-filters {
+  background: var(--gray-light);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--gray-medium);
+}
+
+.filters-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 1rem 0;
+}
+
+.filters-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.filter-input {
+  padding: 0.75rem;
+  border: 2px solid var(--gray-medium);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(103, 18, 242, 0.1);
+}
+
+.filter-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.report-content {
+  margin-top: 2rem;
+}
+
+.report-summary {
+  background: rgba(103, 18, 242, 0.05);
+  border: 1px solid rgba(103, 18, 242, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  text-align: center;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.summary-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.summary-label {
+  font-size: 0.75rem;
+  color: var(--gray-dark);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.courses-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.courses-table thead th {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.courses-table tbody tr {
+  border-bottom: 1px solid var(--gray-medium);
+  transition: all 0.2s ease;
+}
+
+.courses-table tbody tr:hover {
+  background: var(--gray-light);
+}
+
+.courses-table tbody td {
+  padding: 1rem;
+  color: var(--dark);
+  font-size: 0.875rem;
+}
+
+/* Enrollment Charts */
+.enrollment-stats-chart,
+.enrollment-trends-chart {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-medium);
+}
+
+.chart-filters {
+  background: var(--gray-light);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--gray-medium);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+.chart-container {
+  margin-top: 2rem;
+}
+
+.simple-bar-chart {
+  display: flex;
+  align-items: end;
+  gap: 0.5rem;
+  height: 250px;
+  padding: 1rem;
+  background: var(--gray-light);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-medium);
+  overflow-x: auto;
+}
+
+.chart-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 80px;
+}
+
+.bar {
+  width: 40px;
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  transition: all 0.3s ease;
+}
+
+.bar:hover {
+  transform: scaleY(1.05);
+  box-shadow: var(--shadow-md);
+}
+
+.bar-label {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--gray-dark);
+  font-weight: 500;
+}
+
+.simple-line-chart {
+  margin-top: 2rem;
+}
+
+.chart-area {
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+  height: 200px;
+  padding: 1rem;
+  background: var(--gray-light);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-medium);
+  overflow-x: auto;
+}
+
+.trend-point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 80px;
+}
+
+.trend-bars {
+  display: flex;
+  gap: 0.25rem;
+  align-items: end;
+}
+
+.enrollment-bar {
+  width: 20px;
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.students-bar {
+  width: 20px;
+  background: linear-gradient(180deg, var(--success), #059669);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.trend-label {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--gray-dark);
+}
+
+.trend-values {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--gray-dark);
+  font-weight: 500;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-sm);
+}
+
+.enrollment-color {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.students-color {
+  background: linear-gradient(135deg, var(--success), #059669);
+}
+
+.stats-summary,
+.trends-summary {
+  background: rgba(103, 18, 242, 0.05);
+  border: 1px solid rgba(103, 18, 242, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.trends-table {
+  margin-top: 2rem;
+}
+
+.trends-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.trends-table thead th {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.trends-table tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--gray-medium);
+  font-size: 0.875rem;
+}
+
+.trends-table tbody tr:hover {
+  background: var(--gray-light);
+}
+
+/* User Activity Report */
+.user-activity-report {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-medium);
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-top: 2rem;
+}
+
+.users-table thead th {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.users-table tbody tr {
+  border-bottom: 1px solid var(--gray-medium);
+  transition: all 0.2s ease;
+}
+
+.users-table tbody tr:hover {
+  background: var(--gray-light);
+}
+
+.users-table tbody td {
+  padding: 1rem;
+  color: var(--dark);
+  font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .usage-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .filters-form,
+  .chart-filters {
+    grid-template-columns: 1fr;
+  }
+  
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .simple-bar-chart,
+  .chart-area {
+    height: 200px;
+  }
+  
+  .chart-legend {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .courses-table,
+  .users-table,
+  .trends-table table {
+    font-size: 0.8125rem;
+  }
+  
+  .courses-table thead th,
+  .users-table thead th,
+  .trends-table thead th {
+    padding: 0.75rem;
+  }
+  
+  .courses-table tbody td,
+  .users-table tbody td,
+  .trends-table tbody td {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .system-usage-report,
+  .course-popularity-report,
+  .enrollment-stats-chart,
+  .enrollment-trends-chart,
+  .user-activity-report {
+    padding: 1.5rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .simple-bar-chart,
+  .chart-area {
+    padding: 0.75rem;
+  }
+  
+  .chart-bar,
+  .trend-point {
+    min-width: 60px;
+  }
+}

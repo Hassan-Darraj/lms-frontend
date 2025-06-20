@@ -1,0 +1,293 @@
+/* ErrorMessage.css */
+.error-message-container {
+  background: rgba(239, 68, 68, 0.05);
+  border: 2px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: var(--shadow-sm);
+  animation: errorSlideIn 0.3s ease-out;
+}
+
+.error-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.error-icon {
+  font-size: 3rem;
+  color: var(--error);
+  animation: pulse 2s infinite;
+  background: rgba(239, 68, 68, 0.1);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(239, 68, 68, 0.2);
+}
+
+.error-text {
+  text-align: center;
+}
+
+.error-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--error);
+  margin: 0 0 0.5rem 0;
+  position: relative;
+}
+
+.error-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--error);
+  border-radius: var(--radius-sm);
+}
+
+.error-description {
+  font-size: 0.9375rem;
+  color: var(--gray-dark);
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.error-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.retry-btn {
+  padding: 0.75rem 1.5rem;
+  background: var(--error);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.retry-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.retry-btn:hover::before {
+  left: 100%;
+}
+
+.retry-btn:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.retry-btn:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 1rem;
+  animation: rotateIcon 0.3s ease-in-out;
+}
+
+.retry-btn:hover .btn-icon {
+  animation: rotateIcon 0.5s ease-in-out;
+}
+
+@keyframes errorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes rotateIcon {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Compact variant */
+.error-message-container.compact {
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.error-message-container.compact .error-content {
+  flex-direction: row;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.error-message-container.compact .error-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.error-message-container.compact .error-title {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.error-message-container.compact .error-title::after {
+  display: none;
+}
+
+.error-message-container.compact .error-description {
+  font-size: 0.875rem;
+}
+
+/* Inline variant */
+.error-message-container.inline {
+  background: transparent;
+  border: none;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  box-shadow: none;
+}
+
+.error-message-container.inline .error-content {
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+  margin-bottom: 0.75rem;
+}
+
+.error-message-container.inline .error-icon {
+  font-size: 1.25rem;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+}
+
+.error-message-container.inline .error-title {
+  font-size: 0.9375rem;
+}
+
+.error-message-container.inline .error-actions {
+  justify-content: flex-start;
+}
+
+.error-message-container.inline .retry-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .error-message-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .error-content {
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .error-icon {
+    font-size: 2.5rem;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .error-title {
+    font-size: 1.125rem;
+  }
+  
+  .error-description {
+    font-size: 0.875rem;
+  }
+  
+  .retry-btn {
+    padding: 1rem 1.25rem;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-message-container {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+  
+  .error-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .error-title {
+    font-size: 1rem;
+  }
+  
+  .error-description {
+    font-size: 0.8125rem;
+  }
+}
+
+/* Focus styles for accessibility */
+.retry-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .error-message-container {
+    border-width: 3px;
+  }
+  
+  .retry-btn {
+    border: 2px solid var(--white);
+  }
+}

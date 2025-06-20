@@ -1,0 +1,416 @@
+/* SuccessMessage.css */
+.success-message-container {
+  background: rgba(16, 185, 129, 0.05);
+  border: 2px solid rgba(16, 185, 129, 0.2);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: var(--shadow-sm);
+  animation: successSlideIn 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.success-message-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--success), #10b981);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.success-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.success-icon {
+  font-size: 3rem;
+  color: var(--success);
+  animation: successBounce 0.6s ease-out;
+  background: rgba(16, 185, 129, 0.1);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(16, 185, 129, 0.2);
+  position: relative;
+}
+
+.success-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid var(--success);
+  animation: successRipple 1.5s ease-out infinite;
+  opacity: 0;
+}
+
+.success-text {
+  text-align: center;
+}
+
+.success-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--success);
+  margin: 0 0 0.5rem 0;
+  position: relative;
+}
+
+.success-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--success);
+  border-radius: var(--radius-sm);
+}
+
+.success-description {
+  font-size: 0.9375rem;
+  color: var(--gray-dark);
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.success-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.close-btn {
+  padding: 0.75rem 1.5rem;
+  background: var(--success);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.close-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.close-btn:hover::before {
+  left: 100%;
+}
+
+.close-btn:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.close-btn:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+@keyframes successSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes successBounce {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes successRipple {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Compact variant */
+.success-message-container.compact {
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.success-message-container.compact .success-content {
+  flex-direction: row;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.success-message-container.compact .success-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.success-message-container.compact .success-title {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.success-message-container.compact .success-title::after {
+  display: none;
+}
+
+.success-message-container.compact .success-description {
+  font-size: 0.875rem;
+}
+
+/* Inline variant */
+.success-message-container.inline {
+  background: transparent;
+  border: none;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  box-shadow: none;
+}
+
+.success-message-container.inline .success-content {
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+  margin-bottom: 0.75rem;
+}
+
+.success-message-container.inline .success-icon {
+  font-size: 1.25rem;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+}
+
+.success-message-container.inline .success-title {
+  font-size: 0.9375rem;
+}
+
+.success-message-container.inline .success-actions {
+  justify-content: flex-start;
+}
+
+.success-message-container.inline .close-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+}
+
+/* Toast variant */
+.success-message-container.toast {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  max-width: 400px;
+  z-index: 1000;
+  animation: toastSlideIn 0.3s ease-out;
+}
+
+.success-message-container.toast.toast-exit {
+  animation: toastSlideOut 0.3s ease-in;
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* Banner variant */
+.success-message-container.banner {
+  border-radius: 0;
+  margin: 0;
+  max-width: none;
+  border-left: none;
+  border-right: none;
+}
+
+.success-message-container.banner .success-content {
+  flex-direction: row;
+  max-width: 1200px;
+  margin: 0 auto 1rem;
+  text-align: left;
+}
+
+.success-message-container.banner .success-icon {
+  width: 36px;
+  height: 36px;
+  font-size: 1.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .success-message-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .success-content {
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .success-icon {
+    font-size: 2.5rem;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .success-title {
+    font-size: 1.125rem;
+  }
+  
+  .success-description {
+    font-size: 0.875rem;
+  }
+  
+  .close-btn {
+    padding: 1rem 1.25rem;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .success-message-container.toast {
+    top: 1rem;
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .success-message-container {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+  
+  .success-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .success-title {
+    font-size: 1rem;
+  }
+  
+  .success-description {
+    font-size: 0.8125rem;
+  }
+  
+  .success-message-container.toast {
+    top: 0.5rem;
+    right: 0.5rem;
+    left: 0.5rem;
+  }
+}
+
+/* Focus styles for accessibility */
+.close-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .success-message-container {
+    border-width: 3px;
+  }
+  
+  .close-btn {
+    border: 2px solid var(--white);
+  }
+}
+
+/* Animation for auto-close progress */
+.success-message-container.auto-close::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--success);
+  animation: progressBar 5s linear;
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+}
+
+@keyframes progressBar {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}

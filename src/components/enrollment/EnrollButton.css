@@ -1,0 +1,386 @@
+/* EnrollButton.css */
+.enroll-button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.enroll-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  min-height: 56px;
+  width: 100%;
+  box-shadow: var(--shadow-md);
+}
+
+.enroll-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.enroll-btn:disabled:hover {
+  transform: none;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+.btn-icon {
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-text {
+  font-weight: 600;
+  letter-spacing: 0.25px;
+}
+
+.btn-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid var(--white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.enroll-btn:hover:not(:disabled) .btn-shine {
+  left: 100%;
+}
+
+.enroll-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.enroll-btn:hover:not(:disabled) .btn-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.enroll-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
+
+/* Button variants */
+.enroll-btn.primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+  border: 2px solid transparent;
+}
+
+.enroll-btn.primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #5a0fc8, var(--primary));
+}
+
+.enroll-btn.secondary {
+  background: var(--white);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.enroll-btn.secondary:hover:not(:disabled) {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.enroll-btn.outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.enroll-btn.outline:hover:not(:disabled) {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.enroll-btn.success {
+  background: linear-gradient(135deg, var(--success), #34d399);
+  color: var(--white);
+  border: 2px solid transparent;
+}
+
+.enroll-btn.success:hover:not(:disabled) {
+  background: linear-gradient(135deg, #059669, var(--success));
+}
+
+/* Loading state */
+.enroll-btn.loading {
+  pointer-events: none;
+}
+
+.enroll-btn.loading .btn-icon {
+  opacity: 0;
+}
+
+/* Success state */
+.enroll-success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 2px solid rgba(16, 185, 129, 0.2);
+  border-radius: var(--radius-xl);
+  min-height: 56px;
+  animation: successSlideIn 0.4s ease-out;
+}
+
+.success-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--success);
+  font-weight: 600;
+}
+
+.success-icon {
+  font-size: 1.25rem;
+  animation: successBounce 0.6s ease-out;
+}
+
+.success-text {
+  font-size: 1rem;
+  letter-spacing: 0.25px;
+}
+
+/* Error state */
+.error-container {
+  width: 100%;
+}
+
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  animation: errorSlideIn 0.3s ease-out;
+}
+
+.error-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.error-text {
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* Compact variant */
+.enroll-button-container.compact .enroll-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  min-height: 44px;
+}
+
+.enroll-button-container.compact .btn-icon {
+  font-size: 1rem;
+}
+
+.enroll-button-container.compact .success-message {
+  font-size: 0.875rem;
+}
+
+.enroll-button-container.compact .success-icon {
+  font-size: 1rem;
+}
+
+/* Large variant */
+.enroll-button-container.large .enroll-btn {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+  min-height: 64px;
+}
+
+.enroll-button-container.large .btn-icon {
+  font-size: 1.5rem;
+}
+
+/* Full width variant */
+.enroll-button-container.full-width {
+  width: 100%;
+}
+
+.enroll-button-container.full-width .enroll-btn {
+  width: 100%;
+}
+
+/* Animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes successSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes successBounce {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes errorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse effect for emphasis */
+.enroll-btn.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(103, 18, 242, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(103, 18, 242, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(103, 18, 242, 0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .enroll-btn {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.9375rem;
+    min-height: 52px;
+  }
+  
+  .btn-icon {
+    font-size: 1.125rem;
+  }
+  
+  .error-message {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .enroll-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    min-height: 48px;
+  }
+  
+  .btn-content {
+    gap: 0.5rem;
+  }
+  
+  .btn-icon {
+    font-size: 1rem;
+  }
+  
+  .success-message {
+    gap: 0.5rem;
+  }
+  
+  .success-icon {
+    font-size: 1rem;
+  }
+  
+  .success-text {
+    font-size: 0.875rem;
+  }
+}
+
+/* Focus styles for accessibility */
+.enroll-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(103, 18, 242, 0.3), var(--shadow-md);
+}
+
+.enroll-btn.secondary:focus,
+.enroll-btn.outline:focus {
+  box-shadow: 0 0 0 3px rgba(103, 18, 242, 0.3);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .enroll-btn {
+    border-width: 3px;
+  }
+  
+  .enroll-success {
+    border-width: 3px;
+  }
+  
+  .error-message {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .enroll-btn,
+  .btn-icon,
+  .btn-shine,
+  .success-icon {
+    animation: none;
+    transition: none;
+  }
+  
+  .enroll-btn:hover:not(:disabled) {
+    transform: none;
+  }
+}

@@ -1,0 +1,251 @@
+/* ModuleManagement.css */
+.module-management {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Header styles */
+.module-management .module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.module-management .header-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.module-management .header-actions {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.module-management h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.module-management .course-title {
+  font-size: 1.25rem;
+  color: #4b5563;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.module-management .course-id {
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  display: inline-block;
+  font-family: monospace;
+}
+
+/* Content area */
+.module-management .module-content {
+  margin-top: 1.5rem;
+}
+
+/* Loading and error states */
+.module-management-loading,
+.module-management-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  padding: 2rem;
+}
+
+.module-management-error .error-content {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.module-management-error .error-icon {
+  font-size: 3.5rem;
+  color: #ef4444;
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.module-management-error h2 {
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin: 0 0 1rem 0;
+}
+
+.module-management-error p {
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.error-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .module-management {
+    padding: 1.5rem;
+  }
+  
+  .module-management h1 {
+    font-size: 1.625rem;
+  }
+  
+  .module-management .header-actions {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .module-management {
+    padding: 1.25rem;
+  }
+  
+  .module-management h1 {
+    font-size: 1.5rem;
+  }
+  
+  .module-management .header-content,
+  .module-management .header-actions {
+    min-width: 100%;
+  }
+  
+  .module-management .header-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .module-management .header-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .module-management {
+    padding: 1rem;
+  }
+  
+  .module-management h1 {
+    font-size: 1.375rem;
+  }
+  
+  .module-management .course-title {
+    font-size: 1.125rem;
+  }
+  
+  .module-management .course-id {
+    font-size: 0.75rem;
+  }
+}
+
+/* Animation for modals */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal styles */
+.module-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.module-modal-content {
+  background: white;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.module-modal-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.module-modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.module-modal-body {
+  padding: 1.5rem;
+}
+
+.module-modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* Responsive modal */
+@media (max-width: 640px) {
+  .module-modal {
+    padding: 0.5rem;
+  }
+  
+  .module-modal-content {
+    max-height: 95vh;
+  }
+  
+  .module-modal-header,
+  .module-modal-body,
+  .module-modal-footer {
+    padding: 1rem;
+  }
+  
+  .module-modal-footer {
+    flex-direction: column-reverse;
+  }
+  
+  .module-modal-footer .btn {
+    width: 100%;
+  }
+}

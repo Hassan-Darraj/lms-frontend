@@ -1,0 +1,353 @@
+/* AdvancedCourseSearch.css */
+.advanced-search-container {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-medium);
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.search-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--gray-medium);
+}
+
+.search-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+  position: relative;
+}
+
+.search-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: var(--radius-sm);
+}
+
+.search-icon {
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+}
+
+.advanced-search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--dark);
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.search-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.input-wrapper,
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  padding-right: 3rem;
+  border: 2px solid var(--gray-medium);
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  color: var(--dark);
+  background: var(--white);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.form-select {
+  cursor: pointer;
+  appearance: none;
+}
+
+.form-input::placeholder {
+  color: var(--gray-dark);
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(103, 18, 242, 0.1);
+  transform: translateY(-1px);
+}
+
+.form-input:hover,
+.form-select:hover {
+  border-color: var(--secondary);
+}
+
+.input-icon,
+.select-icon {
+  position: absolute;
+  right: 1rem;
+  color: var(--gray-dark);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.form-input:focus + .input-icon,
+.form-select:focus + .select-icon {
+  color: var(--primary);
+}
+
+.search-actions {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--gray-medium);
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.action-btn {
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.action-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.action-btn:hover::before:not(:disabled) {
+  left: 100%;
+}
+
+.reset-btn {
+  background: var(--gray-light);
+  color: var(--dark);
+  border: 1px solid var(--gray-medium);
+}
+
+.reset-btn:hover {
+  background: var(--gray-medium);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.search-btn {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+  border: 1px solid var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.search-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-icon {
+  font-size: 1rem;
+}
+
+.btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid var(--white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Form validation states */
+.form-input:invalid:not(:placeholder-shown),
+.form-select:invalid {
+  border-color: var(--error);
+}
+
+.form-input:invalid:not(:placeholder-shown):focus,
+.form-select:invalid:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-input:valid,
+.form-select:valid {
+  border-color: var(--success);
+}
+
+.form-input:valid:focus,
+.form-select:valid:focus {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Price inputs special styling */
+
+
+.form-input[type="number"]::-webkit-outer-spin-button,
+.form-input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .advanced-search-container {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .search-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .search-title {
+    font-size: 1.25rem;
+  }
+  
+  .search-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.25rem;
+  }
+  
+  .advanced-search-form {
+    gap: 1.25rem;
+  }
+  
+  .search-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .form-input,
+  .form-select {
+    padding: 0.75rem 0.875rem;
+    padding-right: 2.75rem;
+  }
+  
+  .search-actions {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+  }
+  
+  .action-btn {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .advanced-search-container {
+    padding: 1rem;
+  }
+  
+  .search-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .search-title {
+    font-size: 1.125rem;
+  }
+  
+  .advanced-search-form {
+    gap: 1rem;
+  }
+  
+  .search-actions {
+    margin-top: 0.25rem;
+  }
+}
+
+/* Focus styles for accessibility */
+.form-input:focus-visible,
+.form-select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .form-input,
+  .form-select {
+    border-width: 3px;
+  }
+}
+
+/* Animation for form appearance */
+.advanced-search-container {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

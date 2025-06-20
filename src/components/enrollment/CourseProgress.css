@@ -1,0 +1,487 @@
+/* CourseProgress.css */
+.course-progress-container {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-medium);
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.course-progress-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.progress-loading,
+.progress-error,
+.progress-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  padding: 2rem;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--gray-medium);
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-spinner p {
+  color: var(--gray-dark);
+  font-weight: 500;
+}
+
+.error-message,
+.empty-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-lg);
+  font-weight: 500;
+}
+
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.empty-message {
+  background: var(--gray-light);
+  color: var(--gray-dark);
+  border: 1px solid var(--gray-medium);
+}
+
+.error-icon,
+.empty-icon {
+  font-size: 1.25rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--gray-medium);
+}
+
+.progress-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+  position: relative;
+}
+
+.progress-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: var(--radius-sm);
+}
+
+.progress-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.progress-status.not-started {
+  background: rgba(107, 114, 128, 0.1);
+  color: var(--gray-dark);
+}
+
+.progress-status.just-started {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.progress-status.in-progress {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.progress-status.halfway {
+  background: rgba(168, 85, 247, 0.1);
+  color: #a855f7;
+}
+
+.progress-status.almost-done {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+}
+
+.progress-status.completed {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+
+.status-icon {
+  font-size: 1rem;
+}
+
+.progress-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.progress-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.progress-percentage {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.percentage-value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.percentage-label {
+  font-size: 1rem;
+  color: var(--gray-dark);
+  font-weight: 500;
+}
+
+.progress-visual {
+  position: relative;
+}
+
+.progress-circle {
+  position: relative;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 0.5s ease-in-out;
+}
+
+.progress-ring-progress {
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.progress-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.center-percentage {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.progress-bar-section {
+  background: var(--gray-light);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border: 1px solid var(--gray-medium);
+}
+
+.progress-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.bar-label {
+  font-weight: 600;
+  color: var(--dark);
+  font-size: 0.9375rem;
+}
+
+.bar-percentage {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 0.9375rem;
+}
+
+.progress-bar {
+  height: 12px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: var(--radius-lg);
+  transition: width 1s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill.not-started,
+.progress-fill.just-started {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
+.progress-fill.in-progress {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.progress-fill.halfway {
+  background: linear-gradient(90deg, #a855f7, #c084fc);
+}
+
+.progress-fill.almost-done {
+  background: linear-gradient(90deg, #ef4444, #f87171);
+}
+
+.progress-fill.completed {
+  background: linear-gradient(90deg, var(--success), #34d399);
+}
+
+.progress-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shine 2s infinite;
+}
+
+.progress-milestones {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.milestone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.milestone.reached {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.milestone-marker {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--gray-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-dark);
+  transition: all 0.3s ease;
+}
+
+.milestone.reached .milestone-marker {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+.milestone-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-dark);
+  text-align: center;
+}
+
+.milestone.reached .milestone-label {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.progress-insights {
+  background: rgba(103, 18, 242, 0.05);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border: 1px solid rgba(103, 18, 242, 0.1);
+}
+
+.insight-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.insight-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.insight-content h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.insight-content p {
+  font-size: 0.9375rem;
+  color: var(--gray-dark);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .course-progress-container {
+    padding: 1.5rem;
+  }
+  
+  .progress-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .progress-summary {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .percentage-value {
+    font-size: 2.5rem;
+  }
+  
+  .progress-circle svg {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .center-percentage {
+    font-size: 1rem;
+  }
+  
+  .progress-bar-section {
+    padding: 1rem;
+  }
+  
+  .progress-milestones {
+    gap: 0.5rem;
+  }
+  
+  .milestone-marker {
+    width: 28px;
+    height: 28px;
+    font-size: 0.6875rem;
+  }
+  
+  .milestone-label {
+    font-size: 0.6875rem;
+  }
+  
+  .insight-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-progress-container {
+    padding: 1rem;
+  }
+  
+  .progress-title {
+    font-size: 1.25rem;
+  }
+  
+  .percentage-value {
+    font-size: 2rem;
+  }
+  
+  .progress-circle svg {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .center-percentage {
+    font-size: 0.875rem;
+  }
+  
+  .progress-status {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+  
+  .milestone-marker {
+    width: 24px;
+    height: 24px;
+    font-size: 0.625rem;
+  }
+  
+  .milestone-label {
+    font-size: 0.625rem;
+  }
+  
+  .insight-content h4 {
+    font-size: 1rem;
+  }
+  
+  .insight-content p {
+    font-size: 0.875rem;
+  }
+}
