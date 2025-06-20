@@ -21,11 +21,12 @@ const InstructorDashboard = () => {
         ]);
 
         setUser(userResponse.data.user);
-        const instructorCourses = coursesResponse.data.filter(
+        const instructorCourses = coursesResponse.data.data.filter(
           (course) => course.instructor_id === userResponse.data.user.id
         );
         setCourses(instructorCourses);
       } catch (error) {
+        console.log("Error fetching dashboard data:", error);
         setError("Failed to load dashboard data");
       } finally {
         setLoading(false);

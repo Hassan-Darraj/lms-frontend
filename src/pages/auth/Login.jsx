@@ -8,7 +8,7 @@ import SuccessMessage from "../../components/common/SuccessMessage";
 const Login = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+    const navigate = useNavigate();
   const location = useLocation();
 
   // Get redirect path from location state (for protected route redirects)

@@ -46,10 +46,13 @@ const ProtectedRoute = ({ children, allowedRoles = [] }) => {
   }
 
   // If authenticated but role is not allowed, redirect to appropriate dashboard
+    console.warn(`Access denied for role: ${user.role}. Redirecting...`);
+
   if (allowedRoles.length > 0 && !allowedRoles.includes(user.role)) {
     // Redirect to user's role-appropriate dashboard
     let redirectPath;
-    switch (user.role) {
+    let role = JSON.stringify(localStorage.getItem('user')).role || user.role;
+    switch (role) {
       case 'admin':
         redirectPath = '/dashboard/admin';
         break;

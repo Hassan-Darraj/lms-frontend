@@ -154,9 +154,10 @@ const DashboardRedirect = () => {
   if (window.location.pathname !== redirectTo) {
     return <Navigate to={redirectTo} replace />;
   }
-  
+  const role = JSON.parse(localStorage.getItem('user')).role;
+  console.log("User role:", role);  
   // If we're already on the correct path, render the appropriate dashboard
-  switch (user.role.toLowerCase()) {
+  switch (role) {
     case 'admin':
       return <AdminDashboard />;
     case 'instructor':
